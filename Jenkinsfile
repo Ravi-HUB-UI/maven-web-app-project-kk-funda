@@ -1,9 +1,12 @@
 node
 {
    def mavenHome=tool name: "Maven 3.9.9"
+   parameters {
+  choice choices: ['main', 'development'], name: 'Branches'
+}
    stage('checkout')
    {
-   git branch: 'main', credentialsId: '82419a66-ac17-4150-b55e-076e0d0095a8', url: 'https://github.com/Ravi-HUB-UI/maven-web-app-project-kk-funda.git'
+   git branch: '$Branches', credentialsId: '82419a66-ac17-4150-b55e-076e0d0095a8', url: 'https://github.com/Ravi-HUB-UI/maven-web-app-project-kk-funda.git'
    }
    stage('build')
    {
