@@ -4,6 +4,9 @@ tools
 {
   maven "Maven 3.9.9"
 }
+    parameters {
+  choice choices: ['main', 'development'], name: 'Branches'
+}
 /*triggers {
   pollSCM '* * * * *'
 }*/
