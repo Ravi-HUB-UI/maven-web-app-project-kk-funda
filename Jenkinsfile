@@ -4,9 +4,6 @@ tools
 {
   maven "Maven 3.9.9"
 }
-    parameters {
-  choice choices: ['main', 'development'], name: 'Branches'
-}
 /*triggers {
   pollSCM '* * * * *'
 }*/
@@ -17,7 +14,7 @@ options {
         stage('checkout stage') { 
             steps {
               notifyBuild('STARTED')
-            git branch: 'main', credentialsId: '82419a66-ac17-4150-b55e-076e0d0095a8', url: 'https://github.com/Ravi-HUB-UI/maven-web-app-project-kk-funda.git'
+            git branch: 'development', credentialsId: '82419a66-ac17-4150-b55e-076e0d0095a8', url: 'https://github.com/Ravi-HUB-UI/maven-web-app-project-kk-funda.git'
                 
             }
         }
@@ -42,7 +39,7 @@ options {
          sshagent(['e200fa8c-8a2e-4662-8e97-0e827ca8653b']) 
       {
    
-      sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.233.156.103:/opt/apache-tomcat-9.0.97/webapps/"
+      sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.233.152.105:/opt/apache-tomcat-9.0.97/webapps/"
     
       }
 
